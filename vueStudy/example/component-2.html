@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>component-2 props属性</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>component-1</h1>
+    <hr>
+    <div id="app">
+      <panda v-bind:here="message"></panda>
+    </div>
+  
+    <script>
+      //1.挂载的属性props为数组
+      //2.vue 不支持属性中的 - 要改为驼峰式
+      //3.用绑定的方式传值
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'China!'
+        },
+        components: {
+          "panda": {
+            template: `<h3 style="color:green">Panda from {{ here }}</h3>`,
+            props: ['here'] //数组 传一些属性
+          }
+        }
+      })
+      
+    </script>
+  </body>
+</html>

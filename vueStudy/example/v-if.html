@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>v-if&v-else&v-show</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>v-if&v-else&v-show</h1>
+    <hr>
+    <div id="app">
+      <!--<div v-if="isLogin">
+        您好，JSPang!
+      </div>
+      <div v-else>
+        请登录
+      </div>-->
+      <div v-show="isLogin">
+        您好，JSPang!
+      </div>
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          isLogin: true
+        }
+      })
+    </script>
+  </body>
+</html>

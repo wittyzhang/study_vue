@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>vue.set</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>vue.set</h1>
+    <hr>
+    <div id="app">
+      {{count}}
+      <ul>
+        <li v-for='item in arr'>{{item}}</li>
+      </ul>
+    </div>
+    <p>
+      <button onclick="add()">add</button>
+    </p>
+    <script>
+      var outData = {
+        count: 1,
+        // goods: 'car'
+        arr: ['aa','bb','cc']
+      }
+      var app = new Vue({
+        el: '#app',
+        data: outData
+      })
+      function add() {
+        // Vue.set(outData, 'count', 2); //当要操作数组 用数组下标改变的话 vue不会更新
+        // app.count++;
+        // outData.count++;
+        // app.arr[1] = 'ddd'; //不起作用
+        Vue.set(app.arr, 1,'dd');
+        // Vue.set(outData.arr, 1,'dd');
+
+      }
+    </script>
+  </body>
+</html>

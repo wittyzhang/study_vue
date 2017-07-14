@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HelloWorld</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+      <p>{{newPrice}}</p>
+      <ul>
+        <li v-for="item in reversNews">{{ item.title }} / {{item.date}}</li>
+      </ul>
+    </div>
+    <script>
+      var newList = [
+        {
+          title: '标题1',
+          date: '2017-07-08'
+        },
+        {
+          title: '标题2',
+          date: '2017-07-09'
+        },
+        {
+          title: '标题3',
+          date: '2017-07-10'
+        },
+        {
+          title: '标题4',
+          date: '2017-07-11'
+        }
+      ]
+      var app = new Vue({
+        el: '#app',
+        data: {
+          price: 100,
+          newsList:newList
+        },
+        computed: { //不污染原始数据情况下对数据进行改造
+          newPrice: function(){
+            return this.price = '￥' + this.price + '元'
+          },
+          reversNews: function(){
+            return this.newsList.reverse();
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>vue.extend实例</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>vue.extend实例-扩展实例构造器</h1>
+    <hr>
+    <h4>自定义标签 author </h4>
+    <author></author>
+    <hr>
+    <h4>挂载到普通标签上 </h4>
+    <div id='author'></div>
+    <script>
+      var authorExtend = Vue.extend({
+        template: "<p><a :href='authorUrl'>{{ authorName }}</a></p>",
+        data: function(){
+          return {
+            authorName: 'jsPang',
+            authorUrl: 'http://www.jspang.com'
+          }
+        }
+      })
+      new authorExtend().$mount('author'); //挂载扩展实例构造器 组件是这个方式 所以不太建议这样写标签
+      new authorExtend().$mount('#author'); //现有的标签上 已id方式挂载 扩展实例构造器
+    </script>
+  </body>
+</html>

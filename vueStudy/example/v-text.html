@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>v-text & v-html</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>v-text & v-html</h1>
+    <hr>
+    <div id="app">
+      <span>{{message}}</span>=<span v-text="message"></span><br/>
+      <span v-html="dodo"></span> <!--尽量避免 容易xss攻击-->
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'HelloWorld!',
+          dodo: '<h2>helloWorld</h2>'
+        }
+      })
+    </script>
+  </body>
+</html>

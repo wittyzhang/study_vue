@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>methods 方法选项</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>methods 方法选项</h1>
+    <hr>
+    <div id="app">
+      {{ a }}
+      <p>
+        <button @click="add(5,$event)">add</button>
+      </p>
+      <p><btn @click.native="add(5,$event)"></btn>native 修饰符 调用构造器的原始方法</p>
+    </div>
+    <button onclick="app.add(3)">外部ADD</button>
+    <script>
+      var btn ={
+        template: `<button>组件ADD</button>`
+      }
+      var app = new Vue({
+        el: '#app',
+        data: {
+          a: 1
+        },
+        components:{
+          'btn': btn
+        },
+        methods: {
+          add: function(num,event) {
+            if(num != ''){
+              this.a += num;
+            }else{
+              this.a++;
+            }
+            console.log(event)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

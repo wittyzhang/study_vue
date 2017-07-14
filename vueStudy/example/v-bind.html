@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HelloWorld</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../assets/js/vue.js"></script>
+  </head>
+  <body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+      <img v-bind:src="imgurl" alt="" width="200" />
+      <a :href="webUrl" target="_blank">技术胖的博客</a>
+      <hr>
+      <div :class="className">
+        1.绑定class
+      </div>
+      <div :class="{classA: isOk}">
+        2.绑定class中的判断
+      </div>
+      <div :class="[classA, classB]">
+        3.绑定class中的数组
+      </div>
+      <div :class="isOk ? classA : classB ">
+        4.绑定class中的三元运算符
+      </div>
+      <hr>
+      <div>
+        <input type="checkbox" id='isOk' v-model="isOk">
+        <label for="isOk">isOk = {{ isOk }}</label>
+      </div>
+      <hr>
+      <div :style="{color: red,fontSize: font}">
+        5.绑定style
+      </div>
+      <div :style="styleObject">
+        6.对象绑定style
+      </div>
+    </div>
+    <style>
+    .classA{color:red;}
+    .classB{font-size:150%;}
+    </style>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          imgurl: 'https://img04.miyabaobei.com/d1/p5/2017/05/04/54/ad/54ad6198d60c80011f6ca07e7c4b20ab880086104.jpg',
+          webUrl: 'http://jspang.com',
+          className: 'classB',
+          isOk: false,
+          classA: 'classA',
+          classB: 'classB',
+          red: 'red',
+          font: '20px',
+          styleObject:{
+            color: 'green',
+            fontSize: '24px'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
